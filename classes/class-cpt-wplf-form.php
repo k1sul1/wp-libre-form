@@ -501,7 +501,7 @@ class CPT_WPLF_Form {
   function wplf_form( $id, $content = '', $xclass = '', $attributes = [] ) {
     global $post;
 
-    if ( 'publish' === get_post_status( $id ) || 'true' === $_GET['preview'] ) {
+    if ( 'publish' === get_post_status( $id ) || ( !empty( $_GET['preview'] ) && 'true' === $_GET['preview'] ) ) {
       $form = get_post( $id );
       if ( empty( $content ) ) {
         // you can override the content via parameter
